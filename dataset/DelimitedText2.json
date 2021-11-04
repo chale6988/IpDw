@@ -1,0 +1,154 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inventorytestfromyanghong.csv",
+				"folderPath": "input",
+				"fileSystem": "adftutorial"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "流向ID",
+				"type": "String"
+			},
+			{
+				"name": "库存日期",
+				"type": "String"
+			},
+			{
+				"name": "商业编码",
+				"type": "String"
+			},
+			{
+				"name": "商业Ipsen编码",
+				"type": "String"
+			},
+			{
+				"name": "商业名称",
+				"type": "String"
+			},
+			{
+				"name": "商业级别",
+				"type": "String"
+			},
+			{
+				"name": "生产厂家",
+				"type": "String"
+			},
+			{
+				"name": "产品编码",
+				"type": "String"
+			},
+			{
+				"name": "产品名称",
+				"type": "String"
+			},
+			{
+				"name": "商品名称",
+				"type": "String"
+			},
+			{
+				"name": "规格",
+				"type": "String"
+			},
+			{
+				"name": "单位",
+				"type": "String"
+			},
+			{
+				"name": "批号",
+				"type": "String"
+			},
+			{
+				"name": "失效期",
+				"type": "String"
+			},
+			{
+				"name": "效期预警(月)",
+				"type": "String"
+			},
+			{
+				"name": "数量",
+				"type": "String"
+			},
+			{
+				"name": "单价",
+				"type": "String"
+			},
+			{
+				"name": "金额",
+				"type": "String"
+			},
+			{
+				"name": "标准产品编码",
+				"type": "String"
+			},
+			{
+				"name": "标准产品名称",
+				"type": "String"
+			},
+			{
+				"name": "标准规格",
+				"type": "String"
+			},
+			{
+				"name": "标准数量",
+				"type": "String"
+			},
+			{
+				"name": "考核单价",
+				"type": "String"
+			},
+			{
+				"name": "考核金额",
+				"type": "String"
+			},
+			{
+				"name": "标准单位",
+				"type": "String"
+			},
+			{
+				"name": "level2",
+				"type": "String"
+			},
+			{
+				"name": "En",
+				"type": "String"
+			},
+			{
+				"name": "备注",
+				"type": "String"
+			},
+			{
+				"name": "创建日期",
+				"type": "String"
+			},
+			{
+				"name": "是否可用",
+				"type": "String"
+			},
+			{
+				"name": "修改时间",
+				"type": "String"
+			},
+			{
+				"name": "创建时间",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

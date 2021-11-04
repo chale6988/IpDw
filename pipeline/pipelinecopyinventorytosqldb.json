@@ -1,0 +1,256 @@
+{
+	"name": "pipelinecopyinventorytosqldb",
+	"properties": {
+		"activities": [
+			{
+				"name": "copyinventorytosqldb",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "流向ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "flow",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "库存日期",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "intdate",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "商业编码",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "businessCode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "商业Ipsen编码",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ipsenMaterialNumber",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "商业名称",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ipsenMaterialname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "商业级别",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ipsenMateriallevel",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "生产厂家",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "plant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "产品编码",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "skucode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "产品名称",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "skuname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "商品名称",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "productname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "规格",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "skutype",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "单位",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "skuunit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "批号",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "skubatchid",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "失效期",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "expitdate",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "效期预警(月)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "expitmonth",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "数量",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "amount",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 5,
+									"precision": 18
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "inventorytest",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-10-29T02:34:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

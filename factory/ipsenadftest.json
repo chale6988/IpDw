@@ -1,0 +1,9 @@
+{
+	"name": "ipsenadftest",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a4682e35-bb82-45b2-805a-298441e15d61",
+		"tenantId": "3c8ea0e4-127c-4a02-ac65-58830e4ac608"
+	}
+}

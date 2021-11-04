@@ -1,0 +1,20 @@
+{
+	"name": "powerqueryinvertorytest",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "inventorytest",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> inventorytest",
+					"dataset": {
+						"referenceName": "inventorytest",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared inventorytest = let\r\n  AdfDoc = Sql.Database(\"ppsendbservertest.database.windows.net\", \"ipsensqldbtest\", [CreateNavigationProperties = false]),\r\n  InputTable = AdfDoc{[Schema = \"dbo\", Item = \"inventory\"]}[Data]\r\nin\r\n  InputTable;\r\nshared UserQuery = let\r\n  Source = inventorytest\r\nin\r\n  Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}

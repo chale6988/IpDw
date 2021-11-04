@@ -1,0 +1,90 @@
+{
+	"name": "inventorytest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ipsensqldbtest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "flow",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "intdate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "businessCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ipsenMaterialNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ipsenMaterialname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ipsenMateriallevel",
+				"type": "nvarchar"
+			},
+			{
+				"name": "plant",
+				"type": "nvarchar"
+			},
+			{
+				"name": "skucode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "skuname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "productname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "skutype",
+				"type": "nvarchar"
+			},
+			{
+				"name": "skuunit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "skubatchid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "expitdate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "expitmonth",
+				"type": "nvarchar"
+			},
+			{
+				"name": "amount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 5
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "inventory"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
